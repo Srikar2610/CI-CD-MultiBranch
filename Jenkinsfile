@@ -14,19 +14,11 @@ pipeline {
             }
         }
 
-        stage('Build & Test') {
+        stage('Maven Build') {
             steps {
                 sh 'mvn clean package'
             }
         }
-
-        stages {
-        stage('Maven Build') {
-            steps {
-                checkout scm
-            }
-        }
-
         
         stage('Docker Build & Push') {
     when {
