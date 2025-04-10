@@ -20,6 +20,13 @@ pipeline {
             }
         }
 
+        stages {
+        stage('Maven Build') {
+            steps {
+                checkout scm
+            }
+        }
+
         
         stage('Docker Build & Push') {
     when {
